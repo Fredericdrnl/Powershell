@@ -1,3 +1,7 @@
+# script 1 :
+# doit comparer les extensions des fichiers 
+# dans téléchargement et les ranger dans un dossier (le créer dynamiquement si besoin)
+
 Param
     (
         [Parameter(Mandatory=$true)]
@@ -15,7 +19,7 @@ foreach ($FichierDL in $FichiersDL){
             if (!(Test-Path "$($folderPath)$($extension)")){
                 New-Item "$($folderPath)$extension" -itemType Directory
             }
-            Copy-Item "$($folderPath)\$($FichierDL)" -Destination "$($folderPath)$extension" 
+            Copy-Item "$($folderPath)$($FichierDL)" -Destination "$($folderPath)$extension" 
             Remove-Item -Path "$($folderPath)$($FichierDL)"
         }
     }
