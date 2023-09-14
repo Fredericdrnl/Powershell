@@ -9,18 +9,18 @@ Param
     )
     
 Write-Host $folderPath
-$FichiersDL = Get-ChildItem -Path $folderPath -Force
-foreach ($FichierDL in $FichiersDL){
-    $extension =[System.IO.Path]::GetExtension($FichierDL)
-    if (!($extension -like $FichierDL)){
+$filesDL = Get-ChildItem -Path $folderPath -Force
+foreach ($file in $filesDL){
+    $extension =[System.IO.Path]::GetExtension($file)
+    if (!($extension -like $file)){
         if (!($extension -like "")){
             Write-Host "$($extension)"
             Write-Host "$($folderPath)$extension"
             if (!(Test-Path "$($folderPath)$($extension)")){
                 New-Item "$($folderPath)$extension" -itemType Directory
             }
-            Copy-Item "$($folderPath)$($FichierDL)" -Destination "$($folderPath)$extension" 
-            Remove-Item -Path "$($folderPath)$($FichierDL)"
+            Copy-Item "$($folderPath)$($file)" -Destination "$($folderPath)$extension" 
+            Remove-Item -Path "$($folderPath)$($file)"
         }
     }
 }

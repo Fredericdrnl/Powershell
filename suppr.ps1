@@ -5,15 +5,34 @@
 Param
     (
         [Parameter(Mandatory=$true)]
-        [string] $folderPath 
+        [string] $folderPath,
+        [Parameter(Mandatory=$true)]
+        [int] $time
     )
 
 Write-Host $folderPath
-$date=(Get-Date).ToFileTime()
-Write-Host $date
-$FichiersDL = Get-ChildItem -Path $folderPath -Force
-foreach ($FichiersDL in $fichierDL){
-    $fichexc = $fichierDL.LastAccessTime
 
+# Currently time of program exec
+$currently=(Get-Date).ToFileTime()
+Write-Host $currently
+
+# Take files on the folder 
+$filesDL = Get-ChildItem -Path $folderPath -Force
+
+# For each file
+foreach ($file in $filesDL){
+    Write-Host $filesDL
+
+    #Take the last exc time of the file
+    $timeExc = ($file.LastAccessTime).ToFileTime()
+    Write-Host $timeExc
+
+    #If currently time - the last time of exec > time
+    if ($currently - $timeExc -gt $time){
+        #Remove file
+        Remove-Item -Path "$($folderPath)\$($file)"
+        Write-Host "$($file) removed"
+    }
+    Write-Host "-----------------"
 }
 
