@@ -7,14 +7,14 @@ Param
         [Parameter(Mandatory=$true)]
         [string] $folderPath,
         [Parameter(Mandatory=$true)]
-        [int] $time
+        [int] $days
     )
 
 Write-Host $folderPath
 
 # Currently time of program exec
-$currently=(Get-Date).ToFileTime()
-Write-Host $currently
+# $currently=(Get-Date).ToFileTime()
+# Write-Host $currently
 
 # Take files on the folder 
 $filesDL = Get-ChildItem -Path $folderPath -Force
@@ -27,10 +27,13 @@ foreach ($file in $filesDL){
     $timeExc = ($file.LastAccessTime).ToFileTime()
     Write-Host $timeExc
 
+    $limite = (Get-Date).addDays($days).ToFileTime()
+    Write-Host $limite
+
     #If currently time - the last time of exec > time
-    if ($currently - $timeExc -gt $time){
+    if ($timeExc - $limite -lt 0){
         #Remove file
-        Remove-Item -Path "$($folderPath)\$($file)"
+        # Remove-Item -Path "$($folderPath)\$($file)"
         Write-Host "$($file) removed"
     }
     Write-Host "-----------------"
