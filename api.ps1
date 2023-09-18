@@ -20,7 +20,9 @@ Param
     )
 $code = $codePostale, $codePostale2, $codePostale3, $codePostale4, $codePostale5, $codePostale6
 $index = 0
-while (!($code[0] -eq " ") -and ($index -lt $code.Count)) {
+while (!($code[0] -ilike $null) -and ($index -lt $code.Count - 1)) {
+    Write-Host $index
+    Write-Host $code.Count
     $departementCode = $codePostale.Substring(0,2) 
     $urlCommunes = "https://geo.api.gouv.fr/departements/$($departementCode)/communes"
     $listCommunes = Invoke-RestMethod -Uri $urlCommunes -Method 'Get'
