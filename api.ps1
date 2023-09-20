@@ -10,6 +10,9 @@ Param
     )
 $code = $codePostale, $codePostale2, $codePostale3, $codePostale4, $codePostale5, $codePostale6
 $index = 0
+if (!(Test-Path -Path ".\data.txt")) {
+    New-Item -Path . -Name "data.txt" -ItemType "file" -Value "Nom, Population, Code Postale`n"
+}
 while (!($code[$index] -like $null) -and ($index -lt $code.Count)) {
     $departementCode = $code[$index].Substring(0,2) 
     $urlCommunes = "https://geo.api.gouv.fr/departements/$($departementCode)/communes"
@@ -20,8 +23,11 @@ while (!($code[$index] -like $null) -and ($index -lt $code.Count)) {
             $populationCommune = $commune.population
             $codePostaleCommune = $commune.code 
             Write-Host "Nom : $($nomCommune), Population : $($populationCommune), Code Postale : $($codePostaleCommune)"
+            Add-Content -Path ".\data.txt" -Value "$($nomCommune), $($populationCommune), $($codePostaleCommune)"
         }
     }
     $index ++
 }
+$file = ".\data.txt"
+Import-Csv $file | export-csv "data.csv" -NoTypeInformation
 
