@@ -19,6 +19,10 @@ Write-Host $folderPath
 # Take files on the folder 
 $filesDL = Get-ChildItem -Path $folderPath -Force
 
+if (!(Test-Path -Path ".\logs.txt")) {
+    New-Item -Path . -Name "logs.txt" -ItemType "file" -Value "Time, Time exc, file`n"
+}
+
 # For each file
 foreach ($file in $filesDL){
     Write-Host $filesDL
@@ -35,6 +39,7 @@ foreach ($file in $filesDL){
         #Remove file
         # Remove-Item -Path "$($folderPath)\$($file)"
         Write-Host "$($file) removed"
+        Add-Content -Path ".\logs.txt" -Value "$(Get-Date), $($timeExc), $($file)"
     }
     Write-Host "-----------------"
 }

@@ -1,5 +1,23 @@
 Nom, Population, Code Postale
 Beaurainville, 2071, 62100
-Zuytpeene, 512, 59669
-Beauvois, 136, 62101
-Haillicourt, 4864, 62400
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Beaurainville, 2071, 62100
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Beaurainville, 2071, 62100
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Abbeville, 22895, 80001
+Beaurainville, 2071, 62100
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Beugnâtre, 174, 62121
+Beaurainville, 2071, 62100
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Beugny, 358, 62122
+Beaurainville, 2071, 62100
+Beugin, 466, 62120
+Festubert, 1268, 62330
+Beussent, 537, 62123
