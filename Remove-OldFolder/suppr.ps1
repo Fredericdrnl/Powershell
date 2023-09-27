@@ -1,21 +1,17 @@
-# script 2 :
-# doit regarder la date de dernière utilisation/ouverture du fichier 
-# et le supprimer si la date est trop ancienne
+#requires -PSEdition Desktop
+[CmdletBinding()]
 
-Param
+
+funtion Get-OldFolder {
+
+    Param
     (
         [Parameter(Mandatory=$true)]
         [string] $folderPath,
         [Parameter(Mandatory=$true)]
         [int] $days
     )
-
-Write-Host $folderPath
-
-# Currently time of program exec
-# $currently=(Get-Date).ToFileTime()
-# Write-Host $currently
-
+}
 # Take files on the folder 
 $filesDL = Get-ChildItem -Path $folderPath -Force
 
