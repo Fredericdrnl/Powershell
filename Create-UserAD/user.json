@@ -1,0 +1,232 @@
+[
+    {
+        "Name": "John",
+        "Surname": "Doe",
+        "Company": "ABC Company",
+        "EmployeeNumber": "12345",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Manager",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Jane",
+        "Surname": "Smith",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "67890",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Assistant",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Michael",
+        "Surname": "Johnson",
+        "Company": "ABC Company",
+        "EmployeeNumber": "54321",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Supervisor",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Sara",
+        "Surname": "Williams",
+        "Company": "GHI Group",
+        "EmployeeNumber": "98765",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Coordinator",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "David",
+        "Surname": "Brown",
+        "Company": "ABC Company",
+        "EmployeeNumber": "24680",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Analyst",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile C"
+    },
+    {
+        "Name": "Emily",
+        "Surname": "Taylor",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "13579",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Manager",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "William",
+        "Surname": "Anderson",
+        "Company": "GHI Group",
+        "EmployeeNumber": "24689",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Assistant",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Olivia",
+        "Surname": "White",
+        "Company": "ABC Company",
+        "EmployeeNumber": "75309",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Supervisor",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "James",
+        "Surname": "Miller",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "86420",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Coordinator",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Sophia",
+        "Surname": "Lee",
+        "Company": "GHI Group",
+        "EmployeeNumber": "97531",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Analyst",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile C"
+    },
+    {
+        "Name": "Liam",
+        "Surname": "Harris",
+        "Company": "ABC Company",
+        "EmployeeNumber": "35791",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Manager",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Ava",
+        "Surname": "Jackson",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "24681",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Assistant",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Noah",
+        "Surname": "Martin",
+        "Company": "GHI Group",
+        "EmployeeNumber": "86429",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Supervisor",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Isabella",
+        "Surname": "Thompson",
+        "Company": "ABC Company",
+        "EmployeeNumber": "97532",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Coordinator",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Ethan",
+        "Surname": "Davis",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "35792",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Analyst",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile C"
+    },
+    {
+        "Name": "Mia",
+        "Surname": "Wilson",
+        "Company": "GHI Group",
+        "EmployeeNumber": "86430",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Manager",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Liam",
+        "Surname": "Brown",
+        "Company": "ABC Company",
+        "EmployeeNumber": "97533",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Assistant",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Olivia",
+        "Surname": "Smith",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "35793",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Supervisor",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Noah",
+        "Surname": "Johnson",
+        "Company": "GHI Group",
+        "EmployeeNumber": "86431",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Coordinator",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Sophia",
+        "Surname": "Davis",
+        "Company": "ABC Company",
+        "EmployeeNumber": "97534",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Analyst",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile C"
+    },
+    {
+        "Name": "William",
+        "Surname": "White",
+        "Company": "XYZ Corporation",
+        "EmployeeNumber": "35794",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Manager",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    },
+    {
+        "Name": "Isabella",
+        "Surname": "Taylor",
+        "Company": "GHI Group",
+        "EmployeeNumber": "86432",
+        "ZDCAccount": "false",
+        "EmployeeTitle": "Assistant",
+        "IsExternal": "true",
+        "EmployeeProfile": "Profile B"
+    },
+    {
+        "Name": "Ethan",
+        "Surname": "Anderson",
+        "Company": "ABC Company",
+        "EmployeeNumber": "97535",
+        "ZDCAccount": "true",
+        "EmployeeTitle": "Supervisor",
+        "IsExternal": "false",
+        "EmployeeProfile": "Profile A"
+    }
+]
