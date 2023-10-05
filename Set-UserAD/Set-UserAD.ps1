@@ -35,13 +35,32 @@ function Set-UserAD {
             $surnameDF = "$($user.surname)FD"
             $mailDF = "$($user.name).$($user.surname).FD@xxxx.com"
             if ($user.ZDCAccount -eq "true") {
-                $mailDF = "ZDC_$($user.surname)$($user.name.Substring(0, 1))"
-
+                $mailDF = "ZDC_$($user.surname)$($user.name.Substring(0, 1))FD@xxxx.com"
+                Write-Host $mailDF
+            } else {
+                if ($user.EmployeeProfile -ilike "Profile A") {
+                    #intégration dans GR USERS et APP
+                    if ($user.IsExternal -eq "false") {
+                        #intégration dans GR ADMIN
+                    }
+                    
+                } 
+                if ($user.EmployeeProfile -ilike "Profile B"){
+                    #intégration dans GR USERS et APP
+                    if ($user.IsExternal -eq "false") {
+                        #intégration dans GR ADMIN
+                    }
+                } else {
+                    #intégration dans GR USERS et APP
+                    if ($user.IsExternal -eq "false") {
+                        #intégration dans GR ADMIN
+                    }
+                }
             }
         }
     } catch {
-        Write-Verbose "marche pas"
-        throw "marche pas"
+        Write-Verbose "La création du profil n'a pas abouti"
+        throw "La création du profil n'a pas abouti"
     }
 }
 
