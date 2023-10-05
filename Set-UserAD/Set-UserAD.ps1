@@ -34,9 +34,31 @@ function Set-UserAD {
             $nameDF = "$($user.name)FD"
             $surnameDF = "$($user.surname)FD"
             $mailDF = "$($user.name).$($user.surname).FD@xxxx.com"
+            $params = @{
+                accountEnabled = $true
+                displayName = "$($nameDF) $($surnameDF)"
+                mailNickname = "$($user.surname)$($user.name.Substring(0, 1))"
+                userPrincipalName = $mailDF
+                passwordProfile = @{
+                    forceChangePasswordNextSignIn = $true
+                    password = "1234"
+                }
+            }
+            New-MgUser -BodyParameter $params
             if ($user.ZDCAccount -eq "true") {
                 $mailDF = "ZDC_$($user.surname)$($user.name.Substring(0, 1))FD@xxxx.com"
                 Write-Host $mailDF
+                $paramsZDC = @{
+                    accountEnabled = $true
+                    displayName = "$($nameDF) $($surnameDF)"
+                    mailNickname = "$($user.surname)$($user.name.Substring(0, 1))"
+                    userPrincipalName = $mailDF
+                    passwordProfile = @{
+                        forceChangePasswordNextSignIn = $true
+                        password = "1234"
+                    }
+                }
+                # New-MgUser -BodyParameter $paramsZDC
             } else {
                 if ($user.EmployeeProfile -ilike "Profile A") {
                     #intégration dans GR USERS et APP
