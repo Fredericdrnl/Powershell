@@ -4,14 +4,12 @@ function Set-UserAD {
 
     param (
         [Parameter(Mandatory=$true)]
-        [string] $jsonPath,
-        [Parameter(Mandatory=$true)]
-        [string] $accountPath
+        [string] $userPath
     )
 
     # Récupération des comptes dans le json
     try {
-        $Users = Get-Content -Path "$(Get-Location)\$($PSBoundParameters['jsonPath'])" | ConvertFrom-Json
+        $Users = Get-Content -Path "$(Get-Location)\$($PSBoundParameters['userPath'])" | ConvertFrom-Json
         $Users
     } catch {
         Write-Error "Fichier json invalide"
@@ -29,5 +27,22 @@ function Set-UserAD {
         Write-Verbose "Compte invalide"
         throw "Compte invalide"
     }
-    Get-MgUser
+
+    #Parcour du json
+    try {
+        foreach ($user in $users) {
+            $nameDF = "$($user.name)FD"
+            $surnameDF = "$($user.surname)FD"
+            $mailDF = "$($user.name).$($user.surname).FD@xxxx.com"
+            if ($user.ZDCAccount -eq "true") {
+                $mailDF = "ZDC_$($user.surname)$($user.name.Substring(0, 1))"
+
+            }
+        }
+    } catch {
+        Write-Verbose "marche pas"
+        throw "marche pas"
+    }
 }
+
+Set-UserAD -userPath "user.json"
