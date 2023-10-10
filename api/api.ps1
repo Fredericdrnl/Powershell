@@ -13,6 +13,7 @@ while (!($codePostales[$index] -like $null) -and ($index -lt $codePostales.Count
     $urlCommunes = "https://geo.api.gouv.fr/departements/$($departementCode)/communes"
     $listCommunes = Invoke-RestMethod -Uri $urlCommunes -Method 'Get'
     foreach( $commune in $listCommunes ){
+        
         if ( $codePostales[$index] -eq $commune.code ){
             $nomCommune = $commune.nom
             $populationCommune = $commune.population
