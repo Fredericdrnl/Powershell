@@ -37,7 +37,7 @@ function Set-UserAD {
 
         # Connexion à l'AD
         try {
-            Connect-AD
+            . ".\Connect-AD.ps1"
         } catch {
             Write-Verbose "Compte invalide"
             throw "Compte invalide"

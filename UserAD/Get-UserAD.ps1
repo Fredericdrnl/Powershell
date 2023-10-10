@@ -1,5 +1,6 @@
 #requires -PSEdition Desktop
 
+
 <#
     .DESCRIPTION
     Script contenant une fonction permettant de Récupérer les utilisateurs de l'AD
@@ -13,7 +14,8 @@ function Get-UserAD {
     begin {
         # Connexion à l'AD
         try {
-            Connect-AD
+            # Connect-AD
+            . ".\Connect-AD.ps1"
         } catch {
             Write-Verbose "Compte invalide"
             throw "Compte invalide"
