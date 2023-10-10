@@ -37,11 +37,7 @@ function Set-UserAD {
 
         # Connexion à l'AD
         try {
-            $CliendId = "83efbd84-808a-4478-b30c-16df66cd410c"
-            $ClientSecret = ConvertTo-SecureString -String "-~B8Q~KzTrZ7YY9iGu~Ygtx538wEFbvAQJyHHcJ9" -AsPlainText -Force
-            $SecretCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $CliendId, $ClientSecret
-            $TenantId = "2362ee81-c9fc-4f6b-a794-6e91518e5c13"
-            Connect-MgGraph -CLientSecretCredential $SecretCredential -TenantId $TenantId
+            Connect-AD
         } catch {
             Write-Verbose "Compte invalide"
             throw "Compte invalide"
@@ -72,7 +68,7 @@ function Set-UserAD {
                         password = "xWwvJ]6NMw+bWH-d"
                     }
                 }
-                $compte = New-MgUser -BodyParameter $params
+                $account = New-MgUser -BodyParameter $params
                 Write-Verbose "Compte Cree"
                 Add-Content -Path ".\logs.txt" -Value "$(Get-Date) | Compte de $($nameDF) $($surnameDF) cree"
 
@@ -93,7 +89,7 @@ function Set-UserAD {
                     Write-Verbose "Compte ZDC Cree"
                     Add-Content -Path ".\logs.txt" -Value "$(Get-Date) | Compte ZDC de $($nameDF) $($surnameDF) cree"
                 }
-                $userId = $compte.Id
+                $userId = $account.Id
 
                 if ($user.EmployeeProfile -ilike "Profile A") {
                     #intégration dans GR USERS et APP
