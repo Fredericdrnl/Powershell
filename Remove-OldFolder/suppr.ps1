@@ -1,9 +1,10 @@
 #requires -PSEdition Desktop
-[CmdletBinding()]
+
 
 
 function Get-OldFolder {
-
+    [CmdletBinding()]
+    
     Param
     (
         [Parameter(Mandatory=$true)]

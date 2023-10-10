@@ -1,9 +1,8 @@
 #requires -PSEdition Desktop
-[CmdletBinding()]
-
 
 function Clear-OldFolder {
-
+    
+    [CmdletBinding()]
     Param
     (
         [Parameter(Mandatory=$true)]
