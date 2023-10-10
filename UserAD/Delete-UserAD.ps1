@@ -9,7 +9,7 @@
 
     .EXAMPLE
     Sans affichage .\Delete-UserAD.ps1 -accounts "AvaFD JacksonFD"
-    Sans affichage .\Delete-UserAD.ps1 -accounts "AvaFD JacksonFD", "MiaFD WilsonFD" -Verbose
+    Avec affichage .\Delete-UserAD.ps1 -accounts "AvaFD JacksonFD", "MiaFD WilsonFD" -Verbose
     Avec affichage .\Delete-UserAD.ps1 -accounts "AvaFD JacksonFD" -Verbose
 #>
 
