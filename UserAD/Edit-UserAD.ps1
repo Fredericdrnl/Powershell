@@ -1,13 +1,23 @@
 #requires -PSEdition Desktop
 
-
 <#
     .DESCRIPTION
     Script contenant une fonction permettant de modifier un compte de l'AD
 
     .EXAMPLE
-    .\Get-UserAD
+    .\Edit-UserAD -what displayName -userId  "08967d7d-1ec3-4345-9074-c96fb90f8b20" -newValue  "Benjanul Fournier"
 #>
+
+Param (
+    [Parameter(Mandatory=$true)]
+    [ValidateSet('displayName', 'mailNickname', 'userPrincipalName', 'password')]
+    [string] $what
+    [Parameter(Mandatory=$true)]
+    [string] $userId
+    [Parameter(Mandatory=$true)]
+    [string] $newValue
+)
+
 
 function Edit-UserAD {
 
@@ -58,3 +68,5 @@ function Edit-UserAD {
         Disconnect-MgGraph
     }
 }
+
+Edit-UserAD -what $what -userId $userId -newValue $newValue

@@ -30,9 +30,6 @@ function Get-OldFolder {
     
 }
 
-
-
-
 # For each file
 foreach ($file in $filesDL){
     

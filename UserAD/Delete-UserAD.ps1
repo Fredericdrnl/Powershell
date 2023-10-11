@@ -5,7 +5,7 @@
     Script contenant une fonction permettant de supprimer des comptes Azure AD à partir d'un fichier json.
     
     .PARAMETER accounts
-    Le prénom suivi du nom de l'utilisateur à supprimer
+    Liste de prénom suivi du nom de l'utilisateur à supprimer
 
     .EXAMPLE
     Sans affichage .\Delete-UserAD.ps1 -accounts "AvaFD JacksonFD"
