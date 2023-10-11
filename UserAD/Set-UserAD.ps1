@@ -155,6 +155,7 @@ function Set-UserAD {
     end {
         #Deconexion du compte
         Disconnect-MgGraph
+        Add-Content -Path ".\logs.txt" -Value "-----------------------------------------------"
     }
 }
 Set-UserAD -userPath $userPath
