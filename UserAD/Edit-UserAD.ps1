@@ -11,22 +11,22 @@
 Param (
     [Parameter(Mandatory=$true)]
     [ValidateSet('displayName', 'mailNickname', 'userPrincipalName', 'password')]
-    [string] $what
+    [string] $what,
     [Parameter(Mandatory=$true)]
-    [string] $userId
+    [string] $userId,
     [Parameter(Mandatory=$true)]
     [string] $newValue
 )
 
 
 function Edit-UserAD {
-
+    [CmdletBinding()]
     Param (
         [Parameter(Mandatory=$true)]
         [ValidateSet('displayName', 'mailNickname', 'userPrincipalName', 'password')]
-        [string] $what
+        [string] $what,
         [Parameter(Mandatory=$true)]
-        [string] $userId
+        [string] $userId,
         [Parameter(Mandatory=$true)]
         [string] $newValue
     )

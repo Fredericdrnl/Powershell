@@ -5,6 +5,9 @@
     .DESCRIPTION
     Script contenant une fonction permettant de Récupérer les utilisateurs de l'AD
 
+    .OUTPUTS
+    Tous les utilisateurs de l'AD
+
     .EXAMPLE
     .\Get-UserAD
 #>

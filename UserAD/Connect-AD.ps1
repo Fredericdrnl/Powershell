@@ -6,6 +6,8 @@
 #>
 
 function Connect-AD {
+    [CmdletBinding()]
+    
     $CliendId = "83efbd84-808a-4478-b30c-16df66cd410c"
     $ClientSecret = ConvertTo-SecureString -String "-~B8Q~KzTrZ7YY9iGu~Ygtx538wEFbvAQJyHHcJ9" -AsPlainText -Force
     $SecretCredential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $CliendId, $ClientSecret

@@ -2,7 +2,7 @@
 
 <#
     .DESCRIPTION
-    Script contenant une fonction permettant de supprimer des comptes Azure AD à partir d'un fichier json.
+    Script contenant une fonction permettant de supprimer des comptes Azure AD.
     
     .PARAMETER accounts
     Liste de prénom suivi du nom de l'utilisateur à supprimer
@@ -18,8 +18,9 @@ Param (
     [string[]] $accounts
 )
 
-function Delete-UserAD {
-
+function Remove-UserAD {
+    [CmdletBinding()]
+    
     Param (
         [Parameter(Mandatory=$true)]
         [string[]] $accounts
@@ -38,7 +39,7 @@ function Delete-UserAD {
     process {
         foreach($account in $accounts) {
             $users = Get-MgUser -ConsistencyLevel eventual -Count userCount -Search "DisplayName: $($account)"
-            if (!($users -eq $null)){
+            if (!($null -eq $users)){
                 foreach($user in $users){
                     Write-Verbose $user.displayName
                     Remove-MgUser -UserId $user.Id 
