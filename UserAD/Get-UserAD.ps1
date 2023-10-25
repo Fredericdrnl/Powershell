@@ -24,7 +24,6 @@ function Get-UserAD {
             throw "Compte invalide"
         }
     }
-    
     end {
         return Get-MgUser
     }
