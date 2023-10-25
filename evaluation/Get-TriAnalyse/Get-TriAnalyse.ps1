@@ -3,13 +3,13 @@
 
 <#
     .DESCRIPTION
-    Script contenant une fonction permettant de trier un dossier donné en paramètre.
+    Script contenant une fonction permettant de trier un dossier donne en paramètre.
     
     .PARAMETER folderPath
     Le chemin d'acces du fichier à trier.
 
     .OUTPUTS
-    La fonction retourne le fichier trié
+    La fonction retourne le fichier trie
 
     .EXAMPLE
     sans affichage .\Get-TriAnalyse.ps1 -folderPath .\test
@@ -31,15 +31,16 @@ function Get-TriAnalyse {
     begin {
         Write-Verbose $PSBoundParameters['folderPath']
         try {
-
             # Take files on the folder 
             $filesDirectory = Get-ChildItem -Path $PSBoundParameters['folderPath'] -Recurse
-            $pathFilesDirectory = Get-ChildItem -Path ($PSBoundParameters['folderPath']) -Recurse | %{$_.FullName}
-            Write-Verbose "Le dossier à été trouvé"
+
+            # Take path of the files
+            $pathFilesDirectory = Get-ChildItem -Path ($PSBoundParameters['folderPath']) -Recurse | ForEach-Object{$_.FullName} 
+            Write-Verbose "Le dossier à ete trouve"
 
         } catch {
-            Write-Error "Le chemin spécifié en paramètre est invalide"
-            throw "Le chemin spécifié en paramètre est invalide"
+            Write-Error "Le chemin specifie en paramètre est invalide"
+            throw "Le chemin specifie en paramètre est invalide"
         }
 
         #Test if folders exist
@@ -66,59 +67,60 @@ function Get-TriAnalyse {
      
     process {
 
+        #index for pathfilesdirectory and get the good path wich associate with the file
         $i = 0 
+
         # For each file
         foreach ($file in $filesDirectory){
 
             # Get extension of $file
             $extension =[System.IO.Path]::GetExtension($file)
-            $path = Get-ChildItem -Path ($PSBoundParameters['folderPath']) -Filter "$($file)" -Recurse | %{$_.FullName}
 
             # If image file
             if (($extension -ilike ".jpg") -or ($extension -ilike ".png") -or ($extension -ilike ".gif") -or ($extension -ilike ".svg")) {  
                 try {
-                    Copy-Item "$($path)" -Destination "$($PSBoundParameters['folderPath'])\Analyse-image"
-                    Write-Verbose "Le fichier $($file) a été copié dans analyse-image"
+                    Copy-Item "$($pathFilesDirectory[$i])" -Destination "$($PSBoundParameters['folderPath'])\Analyse-image"
+                    Write-Verbose "Le fichier $($file) a ete copie dans analyse-image"
                 }
                 catch {
-                    Write-Error "Le fichier n'a pas pu être copié dans Analyse-image"
-                    throw "Le fichier n'a pas pu être copié dans Analyse-image"
+                    Write-Error "Le fichier n'a pas pu être copie dans Analyse-image"
+                    throw "Le fichier n'a pas pu être copie dans Analyse-image"
                 }
             }
 
             # If video file
             if (($extension -ilike ".mkv") -or ($extension -ilike ".mp4")) {
                 try {
-                    Copy-Item "$($path)" -Destination "$($PSBoundParameters['folderPath'])\Analyse-video"
-                    Write-Verbose "Le fichier $($file) a été copié dans analyse-video"
+                    Copy-Item "$($pathFilesDirectory[$i])" -Destination "$($PSBoundParameters['folderPath'])\Analyse-video"
+                    Write-Verbose "Le fichier $($file) a ete copie dans analyse-video"
                 }
                 catch {
-                    Write-Error "Le fichier n'a pas pu être copié dans Analyse-video"
-                    throw "Le fichier n'a pas pu être copié dans Analyse-video"
+                    Write-Error "Le fichier n'a pas pu être copie dans Analyse-video"
+                    throw "Le fichier n'a pas pu être copie dans Analyse-video"
                 }
             }
 
             # If document file
             if (($extension -ilike ".docx") -or ($extension -ilike ".csv") -or ($extension -ilike ".json") -or ($extension -ilike ".txt")) {
                 try {
-                    Copy-Item "$($path)" -Destination "$($PSBoundParameters['folderPath'])\Analyse-document"
-                    Write-Verbose "Le fichier $($file) a été copié dans analyse-document"
+                    Copy-Item "$($pathFilesDirectory[$i])" -Destination "$($PSBoundParameters['folderPath'])\Analyse-document"
+                    Write-Verbose "Le fichier $($file) a ete copie dans analyse-document"
                 }
                 catch {
-                    Write-Error "Le fichier n'a pas pu être copié dans Analyse-document"
-                    throw "Le fichier n'a pas pu être copié dans Analyse-document"
+                    Write-Error "Le fichier n'a pas pu être copie dans Analyse-document"
+                    throw "Le fichier n'a pas pu être copie dans Analyse-document"
                 }
             }
 
             # If program file
             if (($extension -ilike ".dll") -or ($extension -ilike ".exe")){
                 try {
-                    Copy-Item "$($path)" -Destination "$($PSBoundParameters['folderPath'])\Analyse-programme"
-                    Write-Verbose "Le fichier $($file) a été copié dans analyse-programme"
+                    Copy-Item "$($pathFilesDirectory[$i])" -Destination "$($PSBoundParameters['folderPath'])\Analyse-programme"
+                    Write-Verbose "Le fichier $($file) a ete copie dans analyse-programme"
                 }
                 catch {
-                    Write-Error "Le fichier n'a pas pu être copié dans Analyse-programme"
-                    throw "Le fichier n'a pas pu être copié dans Analyse-programme"
+                    Write-Error "Le fichier n'a pas pu être copie dans Analyse-programme"
+                    throw "Le fichier n'a pas pu être copie dans Analyse-programme"
                 }
             }
         $i++;
@@ -126,7 +128,7 @@ function Get-TriAnalyse {
     }
     
     end {
-        Write-Verbose "Execution du programme terminé"
+        Write-Verbose "Execution du programme termine"
     }
 }
 
