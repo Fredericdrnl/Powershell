@@ -36,7 +36,7 @@ function Get-TriAnalyse {
 
             # Take path of the files
             $pathFilesDirectory = Get-ChildItem -Path ($PSBoundParameters['folderPath']) -Recurse | ForEach-Object{$_.FullName} 
-            Write-Verbose "Le dossier à ete trouve"
+            Write-Verbose "Le dossier a ete trouve"
 
         } catch {
             Write-Error "Le chemin specifie en paramètre est invalide"
